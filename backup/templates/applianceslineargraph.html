@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Appliances Linear Graph</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Appliances Linear Graph</h1>
+    <canvas id="lineChart" width="800" height="400"></canvas>
+
+    <script>
+        // Get data passed from the view
+        var roomData = JSON.parse('{{ room_data|escapejs }}');
+
+        // Get room names and appliance percentages
+        var roomNames = Object.keys(roomData);
+        var appliancePercentages = Object.values(roomData);
+
+        // Create datasets for Chart.js
+        var datasets = [];
+        for (var i = 0; i < roomNames.length; i++) {
+            datasets.push({
+                label: roomNames[i],
+                data: appliancePercentages[i],
+                fill: false,
+                borderColor: getRandomColor(), // Function to generate random colors
+                tension: 0.4
+            });
+        }
+
+        // Create the line chart
+        var ctx = document.getElementById('lineChart').getContext('2d');
+        var lineChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Appliance 1', 'Appliance 2', 'Appliance 3', 'Appliance 4'], // Example appliance names
+                datasets: datasets
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Percentage Usage'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Appliances'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Function to generate random color
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+    </script>
+</body>
+</html>

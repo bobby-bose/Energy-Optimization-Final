@@ -1,0 +1,64 @@
+<!-- bulb_results.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulb Monthly Usage Results</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Bulb Monthly Usage Results</h1>
+        <div class="row">
+            <div class="col-md-8">
+                <canvas id="bulbChart" width="400" height="200"></canvas>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <button class="btn btn-primary btn-lg btn-block" onclick="window.location.href = '{% url 'bulb' %}';">Back</button>
+            </div>
+            <div class="col-md-6">
+                <button class="btn btn-primary btn-lg btn-block" onclick="window.location.href = '{% url 'home' %}';">Home</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get data from Django template context
+        var months = {{ months|safe }};
+        var consumption = {{ consumption|safe }};
+        var total_consumption = {{ total_consumption }};
+
+        // Create a bar chart
+        var ctx = document.getElementById('bulbChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: months,
+                datasets: [{
+                    label: 'Monthly Usage (hours)',
+                    data: consumption,
+                    backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+</body>
+</html>

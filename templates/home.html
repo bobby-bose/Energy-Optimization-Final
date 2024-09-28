@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy - Website</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}
+
+.profile-picture {
+            border-radius: 50%;
+            border: 2px solid #ddd; /* Example border style */
+            width: 80px; /* Adjust size as needed */
+            height: 80px; /* Adjust size as needed */
+            margin-left: 10px; /* Adjust margin as needed */
+        }
+
+/* Custom styles */
+.carousel {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.carousel img {
+    max-width: 100%;
+    max-height: 200px; /* Set the maximum height for all images */
+    width: auto;
+    height: auto;
+    display: inline-block;
+    animation: carousel-animation 10s infinite linear;
+}
+
+@keyframes carousel-animation {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.list-inline {
+    width: 100%;
+}
+
+.list-inline-item {
+    flex: 1;
+    text-align: center;
+}
+        .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20%;
+    margin-bottom: 20px;
+}
+
+.image-container,
+.text-container {
+    flex-basis: 45%; /* Adjust this value as needed */
+}
+
+.image-container img {
+    max-width: 100%;
+    max-height: 500px; /* Set the maximum height for all images */
+}
+
+.text-container p {
+    margin: 0;
+}
+.carousel {
+    width: 100%;
+    height: 150%;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-item {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 1s ease-in-out;
+}
+
+.carousel-item img {
+    max-width: 50%;
+    height: auto;
+}
+
+.text-container {
+    flex: 1;
+    padding: 0 20px; /* Adjust padding as needed */
+    text-align: right;
+}
+
+.carousel-item:nth-child(even) .text-container {
+    text-align: left;
+}
+
+/* Animation */
+@keyframes carousel-animation {
+    0% { transform: translateX(0); }
+    33.33% { transform: translateX(-100%); }
+    66.66% { transform: translateX(-200%); }
+    100% { transform: translateX(0); }
+}
+
+.carousel-item:nth-child(1) {
+    animation: carousel-animation 9s infinite;
+}
+
+.carousel-item:nth-child(2) {
+    animation: carousel-animation 9s infinite 3s;
+}
+
+.carousel-item:nth-child(3) {
+    animation: carousel-animation 9s infinite 6s;
+}
+.chart-container {
+            width: 50%; /* Adjust width as needed */
+            float: left;
+        }
+
+        .bar-plot-container {
+            width: 50%; /* Adjust width as needed */
+            float: right;
+        }
+
+.container-flex {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .chart-container,
+        .bar-plot-container {
+            flex-basis: 48%; /* Adjust as needed */
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-colorschemes"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body>
+   <header class="text-center">
+    <!-- Website header -->
+    <h1 class="mb-4 mt-4">EnerGenie</h1>
+
+       <h3 class="mb-4 mt-4">Hi , Welcome</h3>
+
+    <!-- Navigation bar section -->
+    <nav >
+    <ul class="list-inline bg-light p-3 rounded d-flex w-100">
+        <li class="list-inline-item"><a href="{% url 'home' %}" class="text-dark">  <img src="/static/loginandregister/images/image.jpg" alt="IMG" width="100" height="100"></a></li>
+        <li class="list-inline-item"><a href="{% url 'profile' %}" class="text-dark">Profile</a></li>
+    <li class="list-inline-item"><div class="dropdown">
+                <div class="dropdown">
+  <button class="btn btn-light dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Rooms
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="{% url 'bedroom_create' %}">Bedroom</a>
+    <a class="dropdown-item" href="{% url 'kitchen_appliance_create' %}">Kitchen</a>
+
+    <a class="dropdown-item" href="{% url 'dininghall_create' %}">Dining Hall</a>
+    <a class="dropdown-item" href="{% url 'livingroom_create' %}">Living Room</a>
+    <a class="dropdown-item" href="{% url 'bathroom_create' %}">Bathroom</a>
+  </div>
+</div>
+
+    </div>
+    </li>
+<li class="list-inline-item">
+    <!-- Assuming 'optimized_graphs' is the name of your URL pattern -->
+    <a href="{% url 'optimized_graphs' %}" class="text-dark">
+        <!-- Using Font Awesome icon with increased size -->
+        <img src="{% static 'stock.jpg' %}" style="border-radius: 50%; width: 50px; height: 50px;">
+    </a>
+</li>
+
+
+
+
+
+
+
+      <li class="list-inline-item" style="margin-left:30%;">
+    <!-- Assuming 'calculate_carbon_footprint' is the name of your URL pattern -->
+    <a href="{% url 'calculate_carbon_footprint' %}" class="text-dark">
+        <!-- Using Font Awesome footprint icon -->
+      <img src="{% static 'logo.jpg' %}" alt="Your Logo" height="50">
+    </a>
+</li>
+
+
+
+        <li class="list-inline-item">
+           <a class="nav-link" href="{% url 'profile' %}" >Add</a>
+        </li>
+        <li class="list-inline-item">
+
+    <a class="nav-link" href="{% url 'billings' %}">
+        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+    </a>
+
+</li>
+
+        <li class="list-inline-item">
+            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+        </li>
+    </ul>
+</nav>
+
+</header>
+    <section class="content">
+    <!-- First section with image and paragraph -->
+    <div class="section">
+        <div class="image-container">
+            <img src="../static/images/img1.jpg" alt="Image 1" style="height: 100%">
+        </div>
+        <div class="text-container">
+            <p>
+Solar power, the untaxed resource, remains unclaimed by any individual or entity. Its allure lies in its abundance and cleanliness, harnessed directly from the sun. This decentralized energy source democratizes electricity generation, reducing reliance on fossil fuels and curbing carbon emissions. With ongoing technological advancements, solar energy becomes more efficient and affordable, driving its widespread adoption. Governments and businesses increasingly invest in solar infrastructure, recognizing its potential to reshape energy landscapes, mitigate climate change, and foster sustainable development. As solar power continues to rise, it holds promise for a brighter, cleaner energy future.
+</p>
+        </div>
+    </div>
+<div style="padding:2%;">
+
+</div>
+    <!-- Second section with image and paragraph -->
+    <div class="section">
+        <div class="image-container">
+            <img src="../static/images/img2.jpg" alt="Image 2">
+        </div>
+        <div class="text-container">
+            <p>
+                Simple energy-saving habits like turning off lights when leaving a room, opting for LED light bulbs, and utilizing task lighting can collectively contribute to significant energy conservation. By adopting these practices, individuals can reduce electricity consumption, lower utility bills, and decrease carbon emissions. LED bulbs offer higher efficiency and durability compared to traditional incandescent bulbs, further enhancing energy efficiency. Task lighting focuses illumination where needed, minimizing overall energy usage. These small adjustments not only promote environmental sustainability but also foster a culture of mindfulness towards energy consumption, paving the way for a more sustainable future. </div>
+    </div>
+         <div class="section">
+        <div class="image-container">
+            <img src="../static/images/img1.jpg" alt="Image 1" style="height: 100%">
+        </div>
+        <div class="text-container">
+            <p>
+                To maximize energy efficiency, consider unplugging electronic devices when they're not in use, employ smart power strips to prevent standby power consumption, and invest in energy-efficient appliances. Unplugging devices eliminates vampire power drain, reducing electricity waste. Smart power strips automatically cut power to devices in standby mode, further conserving energy. Energy-efficient appliances consume less power while delivering the same performance, resulting in long-term savings on energy bills. These proactive measures not only reduce environmental impact but also promote sustainable living practices for a greener future.
+   </div>
+    </div>
+<div style="padding:2%;">
+
+</div>
+    <!-- Second section with image and paragraph -->
+    <div class="section">
+        <div class="image-container">
+            <img src="../static/images/img2.jpg" alt="Image 2">
+        </div>
+        <div class="text-container">
+            <p>
+
+
+                Opt for your microwave over the stove for cooking tasks, as it consumes less energy. Consider cooking outdoors whenever possible, utilizing grills or solar cookers to reduce indoor energy consumption. Additionally, batch cooking meals allows for efficient use of energy by minimizing the frequency of stove or oven use. These practices not only conserve energy but also contribute to a more sustainable lifestyle, reducing carbon footprint and promoting environmental well-being. Making simple changes in cooking habits can lead to significant energy savings and a more eco-friendly approach to food preparation.  </div>
+    </div>
+
+         <div class="section">
+        <div class="image-container">
+            <img src="../static/images/img1.jpg" alt="Image 1" style="height: 100%">
+        </div>
+        <div class="text-container">
+            <p>
+To enhance energy efficiency, insulate your roof to prevent heat loss and reduce the need for heating. Weatherizing your home involves sealing gaps and cracks to minimize air leakage, thus conserving energy. Embrace solar energy by installing solar panels or utilizing solar-powered devices to harness renewable energy sources. These measures not only reduce energy consumption but also contribute to sustainability and cost savings. By adopting a combination of insulation, weatherization, and solar solutions, homeowners can create more comfortable living spaces while reducing their environmental impact and dependence on non-renewable energy sources. </div>
+    </div>
+<div style="padding:2%;">
+
+</div>
+    <!-- Second section with image and paragraph -->
+    <div class="section">
+        <div class="image-container">
+            <img src="../static/images/img2.jpg" alt="Image 2">
+        </div>
+        <div class="text-container">
+            <p>Optimize energy usage by favoring the microwave over the stove for quicker and more efficient cooking. Consider outdoor cooking methods such as grilling or using a solar cooker, reducing indoor heat and energy consumption. Embrace batch cooking to prepare multiple meals at once, maximizing the efficiency of your kitchen appliances and minimizing energy usage. These practices not only conserve energy but also offer convenience and versatility in meal preparation, promoting sustainability and reducing environmental impact. By integrating these strategies into daily routines, individuals can contribute to energy conservation efforts while enjoying delicious and efficiently prepared meals.   </div>
+    </div>
+
+
+
+ <div class="container-flex">
+        <!-- Pie chart section -->
+        <div class="chart-container">
+            <!-- Pie chart -->
+            <canvas id="pieChart" width="400" height="400"></canvas>
+        </div>
+
+        <div class="bar-plot-container">
+            <!-- Scatter plot -->
+            <canvas id="scatterPlot" width="400" height="400"></canvas>
+        </div>
+    </div>
+    <!-- Your existing HTML content -->
+
+
+<canvas id="scatterChart" width="80" height="80"></canvas>
+
+
+    </section>
+</div>
+</body>
+<script>
+    // Parse the JSON string into a JavaScript object
+    var scatterData = JSON.parse('{{ scatter_data_json|escapejs }}');
+
+    // Extract x and y coordinates from the scatter data
+    var electricityConsumed = scatterData.scatter_data.map(data => data[0]);
+    var electricityOptimized = scatterData.scatter_data.map(data => data[1]);
+
+    var ctx = document.getElementById('scatterChart').getContext('2d');
+    var scatterChart = new Chart(ctx, {
+        type: 'scatter',
+        data: {
+            datasets: [{
+                label: 'Scatter Plot',
+                data: scatterData.scatter_data,
+                pointBackgroundColor: 'red', // Set point color to red
+                pointRadius: 8, // Set point radius to make them bigger
+                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                borderColor: 'red', // Set line color to red
+                borderWidth: 1, // Set line width
+                showLine: true // Show a line connecting points
+            }]
+        },
+        options: {
+            scales: {
+                x: {
+                    type: 'linear',
+                    position: 'bottom',
+                    title: {
+                        display: true,
+                        text: 'Electricity Consumed'
+                    }
+                },
+                y: {
+                    type: 'linear',
+                    position: 'left',
+                    title: {
+                        display: true,
+                        text: 'Electricity Optimized'
+                    }
+                }
+            }
+        }
+    });
+</script>
+
+
+
+
+    <!-- Bootstrap Script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appliance List</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Style for red-colored bottom border */
+    .red-border-bottom {
+      border-bottom: 2px solid red;
+    }
+    /* Style for table alignment */
+    .table-align {
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 class="text-center">Appliance List</h2>
+    <table class="table table-bordered table-align">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Usage per Hour</th>
+          <th>Carbon Footprint</th>
+          <th>Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for appliance in obj %}
+        <tr class="red-border-bottom">
+          <td>{{ appliance.name }}</td>
+          <td>{{ appliance.type }}</td>
+          <td>{{ appliance.usage_per_hour }}</td>
+          <td>{{ appliance.carbon_footprint }}</td>
+          <td>{{ appliance.rating }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <!-- Bootstrap JS and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

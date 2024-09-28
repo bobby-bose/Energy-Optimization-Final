@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bathroom Appliances - Monthly Usage</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body { background-color: #f8f9fa; }
+        .container { margin-top: 50px; }
+        .month-input { margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Bathroom Appliances - Monthly Usage</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">bathroom 1 Usage Information:</h5>
+                        <form action="/bathroom" method="post">
+                            {% csrf_token %}
+<div class="bathroom1">
+                            <!-- Input fields for Bathroom 1 -->
+                            <h4>Bathroom 1</h4>
+                            <div class="form-group">
+                                <label for="bathroom1_heaterWattage">Heater - Wattage (W):</label>
+                                <input type="number" class="form-control" id="bathroom1_heaterWattage" name="bathroom1_heaterWattage" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="bathroom1_heaterQuantity">Heater - Quantity:</label>
+                                <input type="number" class="form-control" id="bathroom1_heaterQuantity" name="bathroom1_heaterQuantity" required>
+                            </div>
+                            <div class="form-group">
+    <label>Monthly Usage:</label>
+    <div class="row">
+        <div class="col">
+            <label for="bathroom1_january">January:</label>
+            <input type="number" class="form-control month-input" id="bathroom1_january" name="bathroom1_january" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_february">February:</label>
+            <input type="number" class="form-control month-input" id="bathroom1_february" name="bathroom1_february" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_march">March:</label>
+            <input type="number" class="form-control month-input" id="bathroom1_march" name="bathroom1_march" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_april">April:</label>
+            <input type="number" class="form-control month-input" id="bathroom1_april" name="bathroom1_april" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_may">May:</label>
+            <input type="number" class="form-control month-input" id="bathroom1_may" name="bathroom1_may" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_june">June:</label>
+            <input type="number" class="form-control month-input" id="bathroom1_june" name="bathroom1_june" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_july">July:</label>
+            <input type="number" class="form-control month-input" id="bathroom1_july" name="bathroom1_july" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_august">August:</label>
+            <input type="number" class="form-control month-input" id="bathroom1_august" name="bathroom1_august" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_september">September:</label>
+            <input type="number" class="form-control month-input" id="bathroom1_september" name="bathroom1_september" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_october">October:</label>
+            <input type="number" class="form-control month-input" id="bathroom1_october" name="bathroom1_october" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_november">November:</label>
+            <input type="number" class="form-control month-input" id="bathroom1_november" name="bathroom1_november" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_december">December:</label>
+            <input type="number" class="form-control month-input" id="bathroom1_december" name="bathroom1_december" required>
+        </div>
+    </div>
+ </div>
+       </div>
+
+
+<!--                            &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+
+                        <div class="bathroom2">
+                            <!-- Input fields for Bathroom 1 -->
+                            <h4>Bathroom 1</h4>
+                            <div class="form-group">
+                                <label for="bathroom1_heaterWattage">Heater - Wattage (W):</label>
+                                <input type="number" class="form-control" id="bathroom2_heaterWattage" name="bathroom1_heaterWattage" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="bathroom1_heaterQuantity">Heater - Quantity:</label>
+                                <input type="number" class="form-control" id="bathroom2_heaterQuantity" name="bathroom1_heaterQuantity" required>
+                            </div>
+                            <div class="form-group">
+    <label>Monthly Usage:</label>
+    <div class="row">
+        <div class="col">
+            <label for="bathroom1_january">January:</label>
+            <input type="number" class="form-control month-input" id="bathroom2_january" name="bathroom1_january" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_february">February:</label>
+            <input type="number" class="form-control month-input" id="bathroom2_february" name="bathroom1_february" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_march">March:</label>
+            <input type="number" class="form-control month-input" id="bathroom2_march" name="bathroom1_march" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_april">April:</label>
+            <input type="number" class="form-control month-input" id="bathroom2_april" name="bathroom1_april" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_may">May:</label>
+            <input type="number" class="form-control month-input" id="bathroom2_may" name="bathroom1_may" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_june">June:</label>
+            <input type="number" class="form-control month-input" id="bathroom2_june" name="bathroom1_june" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_july">July:</label>
+            <input type="number" class="form-control month-input" id="bathroom2_july" name="bathroom1_july" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_august">August:</label>
+            <input type="number" class="form-control month-input" id="bathroom2_august" name="bathroom1_august" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_september">September:</label>
+            <input type="number" class="form-control month-input" id="bathroom2_september" name="bathroom1_september" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_october">October:</label>
+            <input type="number" class="form-control month-input" id="bathroom2_october" name="bathroom1_october" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_november">November:</label>
+            <input type="number" class="form-control month-input" id="bathroom2_november" name="bathroom1_november" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_december">December:</label>
+            <input type="number" class="form-control month-input" id="bathroom2_december" name="bathroom1_december" required>
+        </div>
+    </div>
+ </div>
+       </div>
+
+
+
+<!--                            ==================================-->
+
+                        <div class="bathroom3">
+                            <!-- Input fields for Bathroom 1 -->
+                            <h4>Bathroom 3</h4>
+                            <div class="form-group">
+                                <label for="bathroom1_heaterWattage">Heater - Wattage (W):</label>
+                                <input type="number" class="form-control" id="bathroom3_heaterWattage" name="bathroom1_heaterWattage" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="bathroom1_heaterQuantity">Heater - Quantity:</label>
+                                <input type="number" class="form-control" id="bathroom3_heaterQuantity" name="bathroom1_heaterQuantity" required>
+                            </div>
+                            <div class="form-group">
+    <label>Monthly Usage:</label>
+    <div class="row">
+        <div class="col">
+            <label for="bathroom1_january">January:</label>
+            <input type="number" class="form-control month-input" id="bathroom3_january" name="bathroom1_january" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_february">February:</label>
+            <input type="number" class="form-control month-input" id="bathroom3_february" name="bathroom1_february" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_march">March:</label>
+            <input type="number" class="form-control month-input" id="bathroom3_march" name="bathroom1_march" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_april">April:</label>
+            <input type="number" class="form-control month-input" id="bathroom3_april" name="bathroom1_april" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_may">May:</label>
+            <input type="number" class="form-control month-input" id="bathroom3_may" name="bathroom1_may" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_june">June:</label>
+            <input type="number" class="form-control month-input" id="bathroom3_june" name="bathroom1_june" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_july">July:</label>
+            <input type="number" class="form-control month-input" id="bathroom3_july" name="bathroom1_july" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_august">August:</label>
+            <input type="number" class="form-control month-input" id="bathroom3_august" name="bathroom1_august" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_september">September:</label>
+            <input type="number" class="form-control month-input" id="bathroom3_september" name="bathroom1_september" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_october">October:</label>
+            <input type="number" class="form-control month-input" id="bathroom3_october" name="bathroom1_october" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_november">November:</label>
+            <input type="number" class="form-control month-input" id="bathroom3_november" name="bathroom1_november" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_december">December:</label>
+            <input type="number" class="form-control month-input" id="bathroom3_december" name="bathroom1_december" required>
+        </div>
+    </div>
+ </div>
+       </div>
+
+
+<!--                            ======================================-->
+
+                        <div class="bathroom4">
+                            <!-- Input fields for Bathroom 1 -->
+                            <h4>Bathroom 1</h4>
+                            <div class="form-group">
+                                <label for="bathroom1_heaterWattage">Heater - Wattage (W):</label>
+                                <input type="number" class="form-control" id="bathroom4_heaterWattage" name="bathroom1_heaterWattage" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="bathroom1_heaterQuantity">Heater - Quantity:</label>
+                                <input type="number" class="form-control" id="bathroom4_heaterQuantity" name="bathroom1_heaterQuantity" required>
+                            </div>
+                            <div class="form-group">
+    <label>Monthly Usage:</label>
+    <div class="row">
+        <div class="col">
+            <label for="bathroom1_january">January:</label>
+            <input type="number" class="form-control month-input" id="bathroom4_january" name="bathroom1_january" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_february">February:</label>
+            <input type="number" class="form-control month-input" id="bathroom4_february" name="bathroom1_february" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_march">March:</label>
+            <input type="number" class="form-control month-input" id="bathroom4_march" name="bathroom1_march" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_april">April:</label>
+            <input type="number" class="form-control month-input" id="bathroom4_april" name="bathroom1_april" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_may">May:</label>
+            <input type="number" class="form-control month-input" id="bathroom4_may" name="bathroom1_may" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_june">June:</label>
+            <input type="number" class="form-control month-input" id="bathroom4_june" name="bathroom1_june" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_july">July:</label>
+            <input type="number" class="form-control month-input" id="bathroom4_july" name="bathroom1_july" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_august">August:</label>
+            <input type="number" class="form-control month-input" id="bathroom4_august" name="bathroom1_august" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_september">September:</label>
+            <input type="number" class="form-control month-input" id="bathroom4_september" name="bathroom1_september" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_october">October:</label>
+            <input type="number" class="form-control month-input" id="bathroom4_october" name="bathroom1_october" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_november">November:</label>
+            <input type="number" class="form-control month-input" id="bathroom4_november" name="bathroom1_november" required>
+        </div>
+        <div class="col">
+            <label for="bathroom1_december">December:</label>
+            <input type="number" class="form-control month-input" id="bathroom4_december" name="bathroom1_december" required>
+        </div>
+    </div>
+ </div>
+       </div>
+
+
+                        </form>
+                            </div>
+
+
+
+                            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

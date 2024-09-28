@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate Carbon Footprint</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Boulder', sans-serif;
+            font-size: 24px;
+        }
+
+        /* Custom styles for form inputs */
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 2px solid green;
+            border-radius: 10px;
+            font-size: 24px;
+        }
+
+        /* Custom styles for buttons */
+        .btn-custom {
+            font-family: 'Boulder', sans-serif;
+            font-size: 24px;
+            border-radius: 10px;
+            margin: 10px 10px;
+            width: 200px;
+            text-align: center;
+        }
+
+        .btn-red {
+            background-color: red;
+            color: white;
+        }
+
+        .btn-green {
+            background-color: green;
+            color: white;
+        }
+
+        .btn-blue {
+            background-color: blue;
+            color: white;
+        }
+
+        .btn-yellow {
+            background-color: yellow;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="text-center">Calculate Carbon Footprint</h1>
+    <form id="carbon_footprint_form" class="container" method="POST" action="{% url 'calculate_carbon_footprint' %}">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col">
+                <label for="fan_usage_hours">Bathroom Usage Hours:</label>
+                <input type="number" id="fan_usage_hours" name="fan_usage_hours" min="0">
+            </div>
+            <div class="col">
+                <label for="light_bulb_usage_hours">Bathroom2 Usage Hours:</label>
+                <input type="number" id="light_bulb_usage_hours" name="light_bulb_usage_hours" min="0">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="refrigerator_usage_hours">Living Room Usage Hours:</label>
+                <input type="number" id="refrigerator_usage_hours" name="refrigerator_usage_hours" min="0">
+            </div>
+            <div class="col">
+                <label for="tv_usage_hours">Bedroom Usage Hours:</label>
+                <input type="number" id="tv_usage_hours" name="tv_usage_hours" min="0">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="tv_usage_hours">Bedroom2 Usage Hours:</label>
+                <input type="number" id="tv_usage_hours" name="tv_usage_hours" min="0">
+            </div>
+            <div class="col">
+                <label for="tv_usage_hours">Bedroom 3 Usage Hours:</label>
+                <input type="number" id="tv_usage_hours" name="tv_usage_hours" min="0">
+            </div><div class="col">
+                <label for="tv_usage_hours">Kitchen Usage Hours:</label>
+                <input type="number" id="tv_usage_hours" name="tv_usage_hours" min="0">
+            </div>
+        </div>
+
+
+        <button type="submit" class="btn btn-custom btn-green">Calculate</button>
+    </form>
+
+    <div id="carbon_footprint_result"></div>
+
+    <!-- JavaScript -->
+    <!-- Add your JavaScript code here -->
+</body>
+</html>

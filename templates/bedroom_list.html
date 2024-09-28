@@ -1,0 +1,65 @@
+<!-- bedroom_appliance_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bedroom Appliances</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Bedroom Appliances</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Bedroom Name</th>
+                    <th>Appliance Name</th>
+                    <th>Wattage (W)</th>
+                    <th>Quantity</th>
+                    <th>Jan</th>
+                    <th>Feb</th>
+                    <th>Mar</th>
+                    <th>Apr</th>
+                    <th>May</th>
+                    <th>Jun</th>
+                    <th>Jul</th>
+                    <th>Aug</th>
+                    <th>Sep</th>
+                    <th>Oct</th>
+                    <th>Nov</th>
+                    <th>Dec</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for bedroom_appliance in bedroom_appliances %}
+                <tr>
+                    <td>{{ bedroom_appliance.bedroom_name }}</td>
+                    <td>{{ bedroom_appliance.appliance_name }}</td>
+                    <td>{{ bedroom_appliance.wattage }}</td>
+                    <td>{{ bedroom_appliance.quantity }}</td>
+                    <td>{{ bedroom_appliance.jan }}</td>
+                    <td>{{ bedroom_appliance.feb }}</td>
+                    <td>{{ bedroom_appliance.mar }}</td>
+                    <td>{{ bedroom_appliance.apr }}</td>
+                    <td>{{ bedroom_appliance.may }}</td>
+                    <td>{{ bedroom_appliance.jun }}</td>
+                    <td>{{ bedroom_appliance.jul }}</td>
+                    <td>{{ bedroom_appliance.aug }}</td>
+                    <td>{{ bedroom_appliance.sep }}</td>
+                    <td>{{ bedroom_appliance.oct }}</td>
+                    <td>{{ bedroom_appliance.nov }}</td>
+                    <td>{{ bedroom_appliance.dec }}</td>
+                    <td>
+                        <form action="{% url 'bedroom_delete' bedroom_appliance.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger btn-delete">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

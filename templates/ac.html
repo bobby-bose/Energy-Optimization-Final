@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Conditioners</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Air Conditioners</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Air Conditioner Information:</h5>
+                        <form action="{% url 'ac' %}" method="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="duration">Duration of Usage (hours/day):</label>
+                                <input type="number" class="form-control" id="duration" name="duration" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="wattage">Wattage (W):</label>
+                                <input type="number" class="form-control" id="wattage" name="wattage" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="quantity">Quantity:</label>
+                                <input type="number" class="form-control" id="quantity" name="quantity" required>
+                            </div>
+                            <!-- Monthly Energy Consumption Inputs -->
+                            <div class="form-group">
+                                <label for="energy_Jan">January Energy Consumption (kWh):</label>
+                                <input type="number" step="0.01" class="form-control" id="energy_Jan" name="energy_Jan" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="energy_Feb">February Energy Consumption (kWh):</label>
+                                <input type="number" step="0.01" class="form-control" id="energy_Feb" name="energy_Feb" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="energy_Mar">March Energy Consumption (kWh):</label>
+                                <input type="number" step="0.01" class="form-control" id="energy_Mar" name="energy_Mar" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="energy_Apr">April Energy Consumption (kWh):</label>
+                                <input type="number" step="0.01" class="form-control" id="energy_Apr" name="energy_Apr" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="energy_May">May Energy Consumption (kWh):</label>
+                                <input type="number" step="0.01" class="form-control" id="energy_May" name="energy_May" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="energy_Jun">June Energy Consumption (kWh):</label>
+                                <input type="number" step="0.01" class="form-control" id="energy_Jun" name="energy_Jun" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="energy_Jul">July Energy Consumption (kWh):</label>
+                                <input type="number" step="0.01" class="form-control" id="energy_Jul" name="energy_Jul" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="energy_Aug">August Energy Consumption (kWh):</label>
+                                <input type="number" step="0.01" class="form-control" id="energy_Aug" name="energy_Aug" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="energy_Sep">September Energy Consumption (kWh):</label>
+                                <input type="number" step="0.01" class="form-control" id="energy_Sep" name="energy_Sep" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="energy_Oct">October Energy Consumption (kWh):</label>
+                                <input type="number" step="0.01" class="form-control" id="energy_Oct" name="energy_Oct" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="energy_Nov">November Energy Consumption (kWh):</label>
+                                <input type="number" step="0.01" class="form-control" id="energy_Nov" name="energy_Nov" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="energy_Dec">December Energy Consumption (kWh):</label>
+                                <input type="number" step="0.01" class="form-control" id="energy_Dec" name="energy_Dec" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

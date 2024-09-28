@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Appliance</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Roboto', sans-serif; /* Use Roboto font */
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .form-container {
+            width: 40%; /* Set form width */
+            margin: 0 auto; /* Center align the form */
+        }
+        .form-container form {
+            padding: 20px; /* Add padding */
+            background-color: #fff; /* White background */
+            border-radius: 10px; /* Add border radius */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow */
+        }
+        .form-container h1 {
+            color: #343a40; /* Dark text color */
+            text-align: center; /* Center align the heading */
+        }
+        .form-container label {
+            color: #343a40; /* Dark text color */
+        }
+        .form-container input[type="text"],
+        .form-container input[type="number"],
+        .form-container button[type="submit"] {
+            border-radius: 5px; /* Add border radius */
+            margin-bottom: 10px; /* Add margin bottom */
+        }
+        .form-container button[type="submit"] {
+            background-color: #dc3545; /* Red background color */
+            color: #fff; /* White text color */
+            border: none; /* Remove border */
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+        <div class="form-container">
+            <h1>Add Appliance</h1>
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="name">Appliance Name:</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="type">Appliance Type:</label>
+                    <input type="text" id="type" name="type" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="usage_per_hour">Usage per Hour:</label>
+                    <input type="number" id="usage_per_hour" name="usage_per_hour" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="power_rating">Power Rating:</label>
+                    <input type="number" id="power_rating" name="power_rating" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" name="quantity" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="hours">Usage Hours:</label>
+                    <input type="number" id="hours" name="hours" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="days">Usage Days:</label>
+                    <input type="number" id="days" name="days" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="months">Usage Months:</label>
+                    <input type="number" id="months" name="months" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="years">Usage Years:</label>
+                    <input type="number" id="years" name="years" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

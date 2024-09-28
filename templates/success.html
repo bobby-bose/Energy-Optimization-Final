@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .profile-picture {
+
+            overflow: hidden; /* Hide the overflow if the image is larger than the container */
+            margin-bottom: 10px; /* Add some space below the image */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Profile Submitted Successfully!</h1>
+        <div class="card mt-3">
+            <div class="card-header">
+                <h5>Profile Details</h5>
+            </div>
+            <div class="card-body">
+                <p><strong>First Name:</strong> {{ user_profile.first_name }}</p>
+                <p><strong>Last Name:</strong> {{ user_profile.last_name }}</p>
+                <p><strong>Middle Name:</strong> {{ user_profile.middle_name }}</p>
+                <p><strong>Mobile Number:</strong> {{ user_profile.mobile_number }}</p>
+                <p><strong>Country Code:</strong> {{ user_profile.country_code }}</p>
+                <p><strong>City:</strong> {{ user_profile.city }}</p>
+                <p><strong>District:</strong> {{ user_profile.district }}</p>
+                <p><strong>State:</strong> {{ user_profile.state }}</p>
+                <p><strong>Secondary Address:</strong> {{ user_profile.secondary_address }}</p>
+
+
+            </div>
+        </div>
+        <button class="btn btn-primary mt-3" onclick="window.location.href = '/profile'">Go Back</button>
+        <button class="btn btn-primary mt-3" onclick="window.location.href = '/home'">Home</button>
+    </div>
+</body>
+</html>

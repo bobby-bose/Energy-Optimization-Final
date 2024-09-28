@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AC Results</title>
+    <!-- Include Chart.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+</head>
+<body>
+    <div>
+        <h1>Total Energy Consumption</h1>
+        <p>Total energy consumption: {{ total }} kWh</p>
+    </div>
+
+    <div>
+        <h2>Energy Consumption Over Months</h2>
+        <canvas id="energyChart"></canvas>
+    </div>
+
+    <script>
+        // Get data from Django template variables
+        const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        const energyData = [
+            {{ energy_january }},
+            {{ energy_february }},
+            {{ energy_march }},
+            {{ energy_april }},
+            {{ energy_may }},
+            {{ energy_june }},
+            {{ energy_july }},
+            {{ energy_august }},
+            {{ energy_september }},
+            {{ energy_october }},
+            {{ energy_november }},
+            {{ energy_december }}
+        ];
+
+        // Create Chart.js bar chart
+        const ctx = document.getElementById('energyChart').getContext('2d');
+        const energyChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: months,
+                datasets: [{
+                    label: 'Energy Consumption (kWh)',
+                    data: energyData,
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Ensure data is correct
+        console.log(months);
+        console.log(energyData);
+    </script>
+</body>
+</html>

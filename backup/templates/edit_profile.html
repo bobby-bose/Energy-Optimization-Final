@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body, html {
+
+      margin: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f8f9fa; /* Light gray background */
+    }
+
+    .container {
+      width: 400px;
+      height:300px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <form action="{% url 'submit_profile' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+       <h2 class="text-center">Edit Profile</h2>
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" class="form-control" id="firstName" name="firstname" value="{{ user_profile.first_name }}" required>
+        </div>
+        <div class="form-group">
+            <label for="middleName">Middle Name</label>
+            <input type="text" class="form-control" id="middleName" name="middlename" value="{{ user_profile.middle_name }}">
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" class="form-control" id="lastName" name="lastname" value="{{ user_profile.last_name }}" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" value="{{ user_profile.user.email }}" readonly>
+        </div>
+        <div class="form-group">
+            <label for="mobile">Mobile Number</label>
+            <input type="text" class="form-control" id="mobile" name="mobile" value="{{ user_profile.mobile_number }}" required>
+        </div>
+        <div class="form-group">
+            <label for="countryCode">Country Code</label>
+            <input type="text" class="form-control" id="countryCode" name="countrycode" value="{{ user_profile.country_code }}">
+        </div>
+        <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" class="form-control" id="city" name="city" value="{{ user_profile.city }}" required>
+        </div>
+        <div class="form-group">
+            <label for="state">State</label>
+            <input type="text" class="form-control" id="state" name="state" value="{{ user_profile.state }}">
+        </div>
+        <div class="form-group">
+            <label for="district">District</label>
+            <input type="text" class="form-control" id="district" name="district" value="{{ user_profile.district }}" required>
+        </div>
+        <div class="form-group">
+            <label for="secondaryAddress">Secondary Address</label>
+            <input type="text" class="form-control" id="secondaryAddress" name="secondaryaddress" value="{{ user_profile.secondary_address }}">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Update Profile</button>
+    </form>
+</div>
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function previewImage(event) {
+        var reader = new FileReader();
+        reader.onload = function() {
+            var preview = document.getElementById('preview');
+            preview.src = reader.result;
+            preview.style.display = 'block';
+        }
+        reader.readAsDataURL(event.target.files[0]);
+    }
+
+    document.getElementById('pic').addEventListener('change', previewImage);
+</script>
+</body>
+</html>

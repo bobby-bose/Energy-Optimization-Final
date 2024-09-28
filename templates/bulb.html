@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light Bulbs - Monthly Usage</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body { background-color: #f8f9fa; }
+        .container { margin-top: 50px; }
+        .month-input { margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Light Bulbs - Monthly Usage</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Bulb Monthly Usage Information:</h5>
+                        <form action="{% url 'bulb' %}" method="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="bulbType">Select Bulb Type:</label>
+                                <select class="form-control" id="bulbType" required>
+                                    <option value="LED">LED</option>
+                                    <option value="Fluorescent">Fluorescent</option>
+                                    <option value="CFL">CFL</option>
+                                    <option value="Smart">Smart Light</option>
+                                    <option value="Halogen">Halogen</option>
+                                </select>
+                            </div>
+                            <h6>Light - Monthly Usage (hours/day):</h6>
+                            <!-- Monthly Inputs -->
+                            <div class="row">
+                                <div class="col-sm-4 month-input">
+                                    <label for="heaterJan">January:</label>
+                                    <input type="number" class="form-control" id="heaterJan" name="heaterJan" required>
+                                </div>
+                                <div class="col-sm-4 month-input">
+                                    <label for="heaterJan">Februray:</label>
+                                    <input type="number" class="form-control" id="heaterfeb" name="heaterfeb" required>
+                                </div>
+                                <div class="col-sm-4 month-input">
+                                    <label for="heaterJan">January:</label>
+                                    <input type="number" class="form-control" id="heatermar" name="heatermar" required>
+                                </div>
+
+                                <!-- Repeat for other months -->
+
+                                <div class="col-sm-4 month-input">
+                                    <label for="heaterJan">April:</label>
+                                    <input type="number" class="form-control" id="heaterapr" name="heaterapr" required>
+                                </div>
+                                <div class="col-sm-4 month-input">
+                                    <label for="heaterJan">May:</label>
+                                    <input type="number" class="form-control" id="heatermay" name="heatermay" required>
+                                </div>
+                                <div class="col-sm-4 month-input">
+                                    <label for="heaterJan">June:</label>
+                                    <input type="number" class="form-control" id="heaterjun" name="heaterjun" required>
+                                </div>
+                                <div class="col-sm-4 month-input">
+                                    <label for="heaterJan">July:</label>
+                                    <input type="number" class="form-control" id="heaterjul" name="heaterjul" required>
+                                </div>
+                                <div class="col-sm-4 month-input">
+                                    <label for="heaterJan">August:</label>
+                                    <input type="number" class="form-control" id="heateraug" name="heateraug" required>
+                                </div>
+                                <div class="col-sm-4 month-input">
+                                    <label for="heaterJan">September:</label>
+                                    <input type="number" class="form-control" id="heatersep" name="heatersep" required>
+                                </div>
+                                <div class="col-sm-4 month-input">
+                                    <label for="heaterJan">October:</label>
+                                    <input type="number" class="form-control" id="heateroct" name="heateroct" required>
+                                </div>
+                                <div class="col-sm-4 month-input">
+                                    <label for="heaterJan">November:</label>
+                                    <input type="number" class="form-control" id="heaternov" name="heaternov" required>
+                                </div>
+                                <div class="col-sm-4 month-input">
+                                    <label for="heaterJan">December:</label>
+                                    <input type="number" class="form-control" id="heaterdec" name="heaterdec" required>
+                                </div>
+
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
